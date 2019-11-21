@@ -1,0 +1,155 @@
+{
+  source: 'route',
+  mixin: [
+    'MHkXV377UxQaKg',
+    'MPO9k8f69u3XvZ',
+  ],
+  properties: {
+    icon: {
+      type: 'string',
+      widget: 'icon',
+      default: 'md/transform',
+    },
+    scheduler: {
+      type: 'string',
+      label: 'Line',
+      default: 'shotbox',
+      oneOf: [
+        {
+          const: 'rundown',
+          title: 'Cue',
+        },
+        {
+          const: 'shotbox',
+          title: 'Trigger',
+        },
+      ],
+      widget: {
+        type: 'switch',
+      },
+    },
+    delay: {
+      type: 'number',
+      title: 'Delay',
+      default: 0,
+    },
+    source: {
+      title: 'Source',
+      type: 'string',
+      default: null,
+      oneOf: [
+        {
+          const: 'CAM1',
+          title: 'CAM1',
+        },
+        {
+          const: 'CAM2',
+          title: 'CAM2',
+        },
+        {
+          const: 'AW3',
+          title: 'AW3',
+        },
+        {
+          const: 'AW4',
+          title: 'AW4',
+        },
+        {
+          const: 'AW5',
+          title: 'AW5',
+        },
+        {
+          const: 'AW6',
+          title: 'AW6',
+        },
+        {
+          const: 'AW7',
+          title: 'AW7',
+        },
+        {
+          const: 'AW8',
+          title: 'AW8',
+        },
+        {
+          const: 'RX1',
+          title: 'RX1',
+        },
+        {
+          const: 'RX2',
+          title: 'RX2',
+        },
+        {
+          const: 'PP',
+          title: 'PP',
+        },
+        {
+          const: 'VMIX',
+          title: 'VMIX',
+        },
+      ],
+    },
+    destination: {
+      type: 'string',
+      title: 'Destination',
+      default: null,
+      oneOf: [
+        {
+          const: 'ING1',
+          title: 'ING1',
+        },
+        {
+          const: 'ING2',
+          title: 'ING2',
+        },
+        {
+          const: 'ING3',
+          title: 'ING3',
+        },
+        {
+          const: 'ING4',
+          title: 'ING4',
+        },
+      ],
+    },
+    triggerStart: {
+      type: 'string',
+      title: 'Link Start',
+      default: 'rundown',
+      oneOf: [
+        {
+          const: 'parent',
+          title: 'Parent',
+        },
+        {
+          const: 'story',
+          title: 'Story',
+        },
+        {
+          const: 'segment',
+          title: 'Segment',
+        },
+        {
+          const: 'rundown',
+          title: 'Rundown',
+        },
+      ],
+    },
+  },
+  layout: {
+    header: [
+      'scheduler',
+      'rundownAuto',
+      'shotbox',
+    ],
+    panel: [
+      'delay',
+      'duration',
+      'source',
+      'destination',
+      'transitionType',
+      'transitionDuration',
+      'triggerStart',
+      'triggerEnd',
+    ],
+  },
+}
