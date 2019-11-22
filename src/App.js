@@ -5,6 +5,7 @@ import Logo from './components/logo/logo';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/rank/rank';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
+import SignIn from './components/SignIn/SignIn';
 import Particles from 'react-particles-js';
 import Clarifai from 'clarifai';
 
@@ -34,6 +35,7 @@ class App extends Component {
       input: '',
       imageUrl: '',
       box: {},
+      route: 'signin'
     }
   }
 
@@ -42,6 +44,7 @@ const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
 const image = document.getElementById('inputimage');
 const width = Number(image.width);
 const height = Number(image.height);
+console.log(width, height);
 return {
   leftCol: clarifaiFace.left_col * width,
   topRow: clarifaiFace.top_row * height,
@@ -79,6 +82,9 @@ displayFaceBox = (box) => {
 
                />
       <Navigation />
+{ this.state.route === 'signin' ?
+        <SignIn />
+        : <div>
       <Logo />
       <Rank />
       <ImageLinkForm
@@ -86,6 +92,8 @@ displayFaceBox = (box) => {
       onButtonSubmit={this.onButtonSubmit}
        />
       <FaceRecognition box={this.state.box} imageUrl={this.state.imageUrl} />
+      </div>
+}
 
 
 

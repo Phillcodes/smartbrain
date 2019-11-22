@@ -1,3 +1,4 @@
 .Tilt {
-  background: linear-gradient(89deg, #FF6EDF 0%, #04C8DE 100%);
+  /*background: linear-gradient(89deg, #000000 0%, #2d2d2d 100%);*/
+  opacity: 1;
 }
