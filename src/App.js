@@ -89,7 +89,7 @@ onRouteChange = (route) => {
 
                />
       <Navigation onRouteChange={this.onRouteChange}/>
-{ this.state.route === 'Home'
+{ this.state.route === 'home'
 ? <div>
 <Logo />
 <Rank />
