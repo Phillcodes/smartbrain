@@ -6,6 +6,7 @@ import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/rank/rank';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import SignIn from './components/SignIn/SignIn';
+import Register from './components/Register/Register';
 import Particles from 'react-particles-js';
 import Clarifai from 'clarifai';
 
@@ -74,6 +75,12 @@ displayFaceBox = (box) => {
 
 
   }
+onRouteChange = (route) => {
+  this.setState({route: route});
+}
+
+
+
   render() {
     return (
     <div className="App">
@@ -81,18 +88,29 @@ displayFaceBox = (box) => {
                params={particlesOptions}
 
                />
-      <Navigation />
-{ this.state.route === 'signin' ?
-        <SignIn />
-        : <div>
-      <Logo />
-      <Rank />
-      <ImageLinkForm
-      onInputChange={this.onInputChange}
-      onButtonSubmit={this.onButtonSubmit}
-       />
-      <FaceRecognition box={this.state.box} imageUrl={this.state.imageUrl} />
-      </div>
+      <Navigation onRouteChange={this.onRouteChange}/>
+{ this.state.route === 'Home'
+? <div>
+<Logo />
+<Rank />
+<ImageLinkForm
+onInputChange={this.onInputChange}
+onButtonSubmit={this.onButtonSubmit}
+/>
+<FaceRecognition box={this.state.box} imageUrl={this.state.imageUrl} />
+</div>
+: (
+
+this.state.route == 'signin'
+?
+    <SignIn onRouteChange={this.onRouteChange}/>
+    :
+    <Register onRouteChange={this.onRouteChange}/>
+
+
+)
+
+
 }
 
 
